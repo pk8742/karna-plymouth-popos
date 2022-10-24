@@ -1,0 +1,36 @@
+
+Window.SetBackgroundTopColor (0, 0, 0);           
+Window.SetBackgroundBottomColor (0, 0, 0);      
+bg_image = Image ("bg.png");
+bg_image = bg_image.Scale (Window.GetWidth (),Window.GetHeight ());
+bg =  Sprite (bg_image);
+bg.SetZ (-10);
+
+
+yPos = (2/5);
+if (Plymouth.GetMode () == "shutdown")
+{
+    yPos = 0.5;
+}
+
+
+
+#----------------------------------------- Progress Bar --------------------------------
+if (Plymouth.GetMode () == "boot")
+{
+    ipb = Image ("pb.png");
+    pb = ipb.Scale (3 , 3);
+    pb = Sprite (ipb);
+    pb.SetX (Window.GetWidth ()  / 2 - 50);
+    pb.SetY ((Window.GetHeight() * (3/4)) + ipb.GetHeight() / 2);
+
+    fun progress_callback (duration, progress)
+    {
+         pb.SetImage(ipb.Scale ( progress * 100, 3));
+    }
+    Plymouth.SetBootProgressFunction(progress_callback);
+}
+
+
+
+

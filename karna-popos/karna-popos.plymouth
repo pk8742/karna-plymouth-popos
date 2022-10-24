@@ -1,0 +1,9 @@
+[Plymouth Theme]
+Name=Karna PopOS
+Description=Pop OS logo with stylish background
+ModuleName=script
+
+[script]
+ImageDir=/usr/share/plymouth/themes/karna-popos
+ScriptFile=/usr/share/plymouth/themes/karna-popos/karna-popos.script
+UseFirmwareBackground=false
